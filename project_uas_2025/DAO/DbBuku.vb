@@ -6,6 +6,7 @@ Public Class DbBuku
     Dim rs As NpgsqlDataReader
     Dim adp As NpgsqlDataAdapter
     Dim query As String
+
     ' Mengambil data buku berdasarkan kata kunci judul
     Public Function searchBooks(titleKeyword As String) As DataTable
         Using conn As NpgsqlConnection = Dbconnnection.openconnection()
@@ -159,6 +160,27 @@ Public Class DbBuku
         Return -1
     End Function
 
+    ' Mengambil stok buku berdasarkan ID buku
+    Public Function GetStokBukuById(id_buku As Integer) As Integer
+        Try
+            Using conn As NpgsqlConnection = Dbconnnection.openconnection()
+                Dim query As String = "SELECT stok FROM buku WHERE id = @id_buku AND is_deleted IS NULL"
+                Using command As New NpgsqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@id_buku", id_buku)
+                    Using reader As NpgsqlDataReader = command.ExecuteReader()
+                        If reader.Read() Then
+                            Return reader.GetInt32(0)
+                        End If
+                    End Using
+                End Using
+            End Using
+            Return -1
+        Catch ex As Exception
+            MessageBox.Show("Error saat memeriksa stok: " & ex.Message)
+            Return -1
+        End Try
+    End Function
+
     ' Menghasilkan laporan data buku berdasarkan rentang tanggal
     Public Function generateDataReportBuku(startDate As Date, endDate As Date) As DataTable
         Using conn As NpgsqlConnection = Dbconnnection.openconnection()
@@ -176,5 +198,4 @@ Public Class DbBuku
             End Using
         End Using
     End Function
-
 End Class

@@ -77,7 +77,6 @@ Public Class FormTransaksi
         DbBuku.clearConnection(rsItem)
     End Sub
 
-
     Public Sub populatePelanggan()
         If ComboPelangganDtl.SelectedIndex <= 0 Or ComboPelangganDtl.SelectedItem Is Nothing Or ComboPelangganDtl.SelectedItem.ToString() = "" Then
             txtDescPelanggan.Text = ""
@@ -110,7 +109,6 @@ Public Class FormTransaksi
         End If
     End Sub
 
-
     Private Sub txtSubTotal_TextChanged(sender As Object, e As EventArgs) Handles txtSubTotal.TextChanged
         Dim subtotal As Double = 0
         Double.TryParse(txtSubTotal.Text, subtotal)
@@ -118,7 +116,6 @@ Public Class FormTransaksi
         txtPajak.Text = pajak.ToString()
         txtTotal.Text = (subtotal + pajak).ToString()
     End Sub
-
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Try
@@ -144,9 +141,17 @@ Public Class FormTransaksi
                 Exit Sub
             End If
 
-            '--- Validasi stok ---
+            '--- Validasi jumlah buku ---
             If jumlah_buku <= 0 Then
                 MessageBox.Show("Jumlah buku harus lebih dari 0")
+                Exit Sub
+            End If
+
+            '--- Validasi stok buku ---
+            Dim dbBuku As New DbBuku()
+            Dim stokTersedia As Integer = dbBuku.GetStokBukuById(id_buku)
+            If stokTersedia < jumlah_buku Then
+                MessageBox.Show("Stok buku tidak cukup. Stok tersedia: " & stokTersedia & ", jumlah yang diminta: " & jumlah_buku)
                 Exit Sub
             End If
 
@@ -155,7 +160,7 @@ Public Class FormTransaksi
 
             If hasilInsert > 0 Then
                 '--- Update stok buku ---
-                Dim hasilUpdate As Integer = (New DbBuku).UpdateStokBuku(id_buku, jumlah_buku)
+                Dim hasilUpdate As Integer = dbBuku.UpdateStokBuku(id_buku, jumlah_buku)
                 If hasilUpdate > 0 Then
                     MessageBox.Show("Transaksi berhasil dan stok buku terupdate.")
 
@@ -182,6 +187,6 @@ Public Class FormTransaksi
     End Sub
 
     Private Sub TextIdTransaksi_TextChanged(sender As Object, e As EventArgs) Handles TextIdTransaksi.TextChanged
-
+        ' Kosong, sesuai kode asli
     End Sub
 End Class

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "project_uas_2025", "project_uas_2025\project_uas_2025.vbproj", "{9ACB4DA7-AB4D-4D70-8317-A89A1306FDEB}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Manajemen-Toko-Buku", "project_uas_2025\Manajemen-Toko-Buku.vbproj", "{9ACB4DA7-AB4D-4D70-8317-A89A1306FDEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

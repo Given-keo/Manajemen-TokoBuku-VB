@@ -45,7 +45,6 @@ Partial Class FormTransaksi
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.BtnDelete = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -286,39 +285,25 @@ Partial Class FormTransaksi
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.BtnDelete)
         Me.GroupBox1.Controls.Add(Me.BtnAdd)
-        Me.GroupBox1.Location = New System.Drawing.Point(722, 505)
+        Me.GroupBox1.Location = New System.Drawing.Point(789, 505)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(453, 154)
+        Me.GroupBox1.Size = New System.Drawing.Size(386, 154)
         Me.GroupBox1.TabIndex = 64
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Action"
-        '
-        'BtnDelete
-        '
-        Me.BtnDelete.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDelete.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.BtnDelete.Location = New System.Drawing.Point(30, 52)
-        Me.BtnDelete.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Size = New System.Drawing.Size(171, 51)
-        Me.BtnDelete.TabIndex = 31
-        Me.BtnDelete.Text = "Delete"
-        Me.BtnDelete.UseVisualStyleBackColor = False
         '
         'BtnAdd
         '
         Me.BtnAdd.BackColor = System.Drawing.Color.DarkSlateGray
         Me.BtnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnAdd.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnAdd.Location = New System.Drawing.Point(242, 52)
+        Me.BtnAdd.Location = New System.Drawing.Point(90, 59)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(190, 51)
+        Me.BtnAdd.Size = New System.Drawing.Size(197, 51)
         Me.BtnAdd.TabIndex = 30
         Me.BtnAdd.Text = "Add"
         Me.BtnAdd.UseVisualStyleBackColor = False
@@ -383,6 +368,5 @@ Partial Class FormTransaksi
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents BtnDelete As Button
     Friend WithEvents BtnAdd As Button
 End Class
